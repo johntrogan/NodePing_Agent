@@ -10,7 +10,7 @@
         "jsftp": "0.4.7",
         "mongodb": "4.13.0",
         "moment": "^2.24.0",
-        "mtrext": "^1.0.5",
+        "nodeping-mtrext": "^1.0.9",
         "mysql2": "^2.3.3",
         "nodeping-dns": "0.7.1",
         "net-snmp": "2.0.0",

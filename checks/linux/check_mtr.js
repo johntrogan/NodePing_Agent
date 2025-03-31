@@ -18,7 +18,7 @@ var config = {
 
 var resultobj = require('../results.js');
 var sys = require('util');
-var mtrext = require('mtrext').MtrExt;
+var mtrext = require('nodeping-mtrext').MtrExt;
 var dns = require('dns');
 var net = require('net');
 
