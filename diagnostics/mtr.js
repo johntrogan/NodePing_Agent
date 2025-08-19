@@ -20,8 +20,19 @@ var diagRun = exports.diagRun = function(request, callback){
         count = request.count;
     }
 
+    console.log('mtr to ',targ);
     var info = {start:new Date().getTime()};
-    var mtr = spawn(command, ['-b','-w','-c '+count, targ]);
+    var args = ['-b','-w','-c '+count];
+    if (request.ipv6 || (request.checkinfo && request.checkinfo.parameters && request.checkinfo.parameters.ipv6) || ipaddr.IPv6.isValid(targ)) {
+        args.push('-6');
+    } else {
+        args.push('-4');
+    }
+    args.push(targ);
+    
+    console.log('mtr args ',args);
+
+    var mtr = spawn(command, args);
 
     var out = "", error = "";
 
