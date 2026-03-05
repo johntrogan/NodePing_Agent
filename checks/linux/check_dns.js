@@ -198,6 +198,10 @@ var check = exports.check = function(jobinfo) {
                         for (var i=0;i<myanswer.answer.length;i++) {
                             if (myanswer.answer[i].type == dnstypeid || dnstype == 'ANY') {
                                 var found = false;
+                                // reassemble 'data' element if key splitting
+                                if (myanswer[section][i].data && Array.isArray(myanswer[section][i].data) && myanswer[section][i].data.length) {
+                                    myanswer[section][i].data = myanswer[section][i].data.join("");
+                                }
                                 if (myanswer.answer[i].name == jobinfo.parameters.contentstring) {
                                     debugMessage('info','check_dns: '+jobinfo.parameters.contentstring+' equals "name" '+myanswer.answer[i].name);
                                     found = true;
